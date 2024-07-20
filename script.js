@@ -72,8 +72,8 @@ const wornpants = document.querySelector("#wornpants");
 const clothing = document.querySelector("#clothing").children;
 const shirtText = clothing[0];
 
-const clickAudio = document.querySelector("#clickAudio");
-const takeoffAudio = document.querySelector("#takeoffAudio");
+const clickAudio = new Audio("audio/Click.ogg"); //document.querySelector("#clickAudio");
+const takeoffAudio = new Audio("audio/TakeOff.ogg"); //document.querySelector("#takeoffAudio");
 
 /*DELETE CLOTHING ALREADY ON CHARACTER*/
 function removeShirt() {
@@ -163,10 +163,10 @@ var answerIndex = 1;
 var score = 0;
 var questionsAnswered = 0;
 
-const correctAudio = document.querySelector("#correctAudio");
-const wrongAudio = document.querySelector("#wrongAudio");
-const passAudio = document.querySelector("#passAudio");
-const failAudio = document.querySelector("#failAudio");
+const correctAudio = new Audio("audio/Correct.ogg");//document.querySelector("#correctAudio");
+const wrongAudio = new Audio("audio/Wrong.ogg");//document.querySelector("#wrongAudio");
+const passAudio = new Audio("audio/Pass.ogg");//document.querySelector("#passAudio");
+const failAudio = new Audio("audio/Fail.ogg");//document.querySelector("#failAudio");
 
 menuPage.style.display = "initial";
 function HideQuizPages() {
