@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--02_RayyanPutraZalman_232470K-->
+<head>
+    <meta charset="UTF-8"> <!--Character encoding needed-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NYP: Sakuran Japanese Cultural Club</title>
+    <link rel="stylesheet" href="style.css"> <!--this is to link css-->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!--header section-->
+    <header>
+        <div id="title">
+            <!--images are contained in div to centre them-->
+            <div>
+                <img src="images/nyp.png">
+            </div>
+            <h1>NANYANG POLYTECHNIC<br>SAKURAN JAPANESE CULTURAL CLUB</h1>
+            <div>
+                <img src="images/sjcc.jpg">
+            </div>
+        </div>
+        <div id="stretchedContainer">
+            <img id="stretched" src="images/header.jpg">
+        </div>
+    </header>
+    <!--containing all the sections into pages-->
+    <div id="pages">
+        <section id="overviewPage">
+            <div class="content">
+                <!--elements within .content are contained in a div to apply animation-->
+                <div>
+                    <h2>OVERVIEW</h2>
+                    <p>
+                        The Sakuran Japanese Cultural Club (SJCC) is a club tailored for students with a shared interest in Japanese culture.
+                        SJCC creates a community which fosters bonds and educates its members through fun club activities.
+                        Students interested in learning a little more about Japan, or are simply looking for an easygoing club to get a break from the stress of school, all are welcome.
+                        If you enjoy anime, manga, language, or anything Japanese, this is the club for you!
+                    </p>
+                    <img src="images/japan.png">
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <h2>DIVISIONS</h2>
+                    <p>
+                        SJCC is split into separate divisions with different club activities, each pertaining to an aspect of Japanese culture.
+                        Members of SJCC are free to join whichever division they'd like, however many they'd like, whenever they'd like.
+                        Each division holds club activities at different times and days. Members can choose whatever fits them best.
+                    </p>
+                    <h3>MANGA ANIME ILLUSTRATIONS DIVISION (MAID)</h3>
+                    <p>
+                        For artists looking to learn techniques to improve their anime art, or those that simply enjoy the entertainment medium,
+                        come to a MAID session to learn how to draw the titular manga style. Sessions may cover topics such as drawing the
+                        individual body parts of an anime character, or even topics such as basic colour theory and character design.
+                    </p>
+                    <p>
+                        Session Times:<br>
+                        Online: Saturday, 5:00 - 7:00 p.m.<br>
+                        Physical (once a month): Friday, 4:30 - 6:30 p.m.<br>
+                        *Physical session timings may vary
+                        <br><br>
+                        Bringing your own materials is recommended.
+                    </p>
+                    <img src="images/artist.png">
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <h2>THE PEOPLE BEHIND IT</h2>
+                    <h3>STAFF-IN-CHARGE</h3>
+                    <p>
+                        Kenji Ota is the lecturer-in-charge for SJCC. He is also responsible for teaching in lectures about Japanese language
+                        here at NYP.
+                    </p>
+                    <h3>DIVISION LEADERS</h3>
+                    <p>
+                        Ary, the president of the MAID division, is responsible for leading the MAID sessions.
+                    </p>
+                    <img src="images/teacher.png">
+                </div>
+            </div>
+        </section>
+        <section id="maidPage">
+            <div class="content">
+                <div>
+                    <h2>MANGA ANIME ILLUSTRATION DIVISION (MAID)</h2>
+                    <p>
+                        The MAID division is for those interested in drawing the anime/manga style.
+                        Students who are looking to improve their anime art or have no experience at all, all are welcome.
+                        Through attending MAID sessions, students can learn how to draw anime characters, and even create characters of their own.
+                    </p>
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <h2>GALLERY</h2>
+                    <p>Through attending MAID sessions, members can learn the basics of producing art similar to the works below.</p>
+                    <div id="gallery">
+                        <img src="images/gallery1.jpg">
+                        <img src="images/gallery2.jpg">
+                        <img src="images/gallery3.jpg">
+                        <img src="images/gallery4.png">
+                        <img src="images/gallery5.jpg">
+                    </div>
+                    <p>*The images provided are only placeholders.</p>
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <!--games are contained within the padding of the content, also allows the game to be centred-->
+                    <div class="gamecontainer">
+                        <h3>Dress up for school!</h3>
+                        <div id="game1">
+                            <!--character to put the clothes on-->
+                            <!--buttons in #clothing are cloned and appended to #wornpants or #wornshirt-->
+                            <div id="character">
+                                <img src="images/game/Character.png">
+                                <div id="wornpants">
+                                </div>
+                                <div id="wornshirt">
+                                </div>
+                                <!--wornshirt comes after wornpants so the shirt appears over the pants-->
+                            </div>
+                            <div id="clothing">
+                                <p>Choose a shirt!</p>
+                                <button><img src="images/game/Shirt1.png"></button>
+                                <button><img src="images/game/Shirt2.png"></button>
+                                <button><img src="images/game/Shirt3.png"></button>
+                                <button><img src="images/game/Pants1.png"></button>
+                                <button><img src="images/game/Pants2.png"></button>
+                                <button><img src="images/game/Pants3.png"></button>
+                            </div>
+                            <!--game audio to be played when interacting-->
+                            <audio id="clickAudio">
+                                <source src="audio/Click.ogg" type="audio/ogg">
+                            </audio>
+                            <audio id="takeoffAudio">
+                                <source src="audio/TakeOff.ogg" type="audio/ogg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="bjclPage">
+            <div class="content">
+                <div>
+                    <h2>BASIC CONVERSATIONAL JAPANESE LESSONS (BJCL)</h2>
+                    <p>
+                        Once a month, SJCC members are invited to join the Basic Conversational Japanese Lessons (BJCL). Lessons are filled with
+                        fun games and activities that involve learning Japanese words and phrases. Each lesson has its own unique theme, which comes with
+                        lessons about Japanese life as well.
+                    </p>
+                    <img src="images/kids.png">
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <!--tables of japanese phrases for the quiz-->
+                    <h2>JAPANESE WORDS AND PHRASES</h2>
+                    <div id="japanesePhrases">
+                        <table>
+                            <tr>
+                                <td>Konnichiwa</td>
+                                <td>Hello.</td>
+                            </tr>
+                            <tr>
+                                <td>Arigatoo Gozaimasu</td>
+                                <td>Thank you.</td>
+                            </tr>
+                            <tr>
+                                <td>Sumimasen</td>
+                                <td>Sorry. / Excuse me.</td>
+                            </tr>
+                            <tr>
+                                <td>Namae</td>
+                                <td>Name</td>
+                            </tr>
+                            <tr>
+                                <td>Konbanwa</td>
+                                <td>Good evening.</td>
+                            </tr>
+                            <tr>
+                                <td>Mata raishuu</td>
+                                <td>See you next week.</td>
+                            </tr>
+                            <tr>
+                                <td>Sayonara</td>
+                                <td>Goodbye</td>
+                            </tr>
+                            <tr>
+                                <td>Gakusee</td>
+                                <td>Student</td>
+                            </tr>
+                            <tr>
+                                <td>Sensee</td>
+                                <td>Teacher</td>
+                            </tr>
+                            <tr>
+                                <td>Gakubu</td>
+                                <td>School / Department</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td>Tabemono</td>
+                                <td>Food</td>
+                            </tr>
+                            <tr>
+                                <td>Nomimono</td>
+                                <td>Drink</td>
+                            </tr>
+                            <tr>
+                                <td>Kagi</td>
+                                <td>Key</td>
+                            </tr>
+                            <tr>
+                                <td>Neko</td>
+                                <td>Cat</td>
+                            </tr>
+                            <tr>
+                                <td>Inu</td>
+                                <td>Dog</td>
+                            </tr>
+                            <tr>
+                                <td>Hon</td>
+                                <td>Book</td>
+                            </tr>
+                            <tr>
+                                <td>Kuruma</td>
+                                <td>Car</td>
+                            </tr>
+                            <tr>
+                                <td>Shinbun</td>
+                                <td>Newspaper</td>
+                            </tr>
+                            <tr>
+                                <td>Zasshi</td>
+                                <td>Magazine</td>
+                            </tr>
+                            <tr>
+                                <td>Jisho</td>
+                                <td>Dictionary</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td>Ichi</td>
+                                <td>One</td>
+                            </tr>
+                            <tr>
+                                <td>Ni</td>
+                                <td>Two</td>
+                            </tr>
+                            <tr>
+                                <td>San</td>
+                                <td>Three</td>
+                            </tr>
+                            <tr>
+                                <td>Yon</td>
+                                <td>Four</td>
+                            </tr>
+                            <tr>
+                                <td>Go</td>
+                                <td>Five</td>
+                            </tr>
+                            <tr>
+                                <td>Roku</td>
+                                <td>Six</td>
+                            </tr>
+                            <tr>
+                                <td>Nana</td>
+                                <td>Seven</td>
+                            </tr>
+                            <tr>
+                                <td>Hachi</td>
+                                <td>Eight</td>
+                            </tr>
+                            <tr>
+                                <td>Kyuu</td>
+                                <td>Nine</td>
+                            </tr>
+                            <tr>
+                                <td>Juu</td>
+                                <td>Ten</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <div class="gamecontainer">
+                        <h3>Test your knowledge!</h3>
+                        <div id="game2">
+                            <audio id="correctAudio">
+                                <source src="audio/Correct.ogg" type="audio/ogg">
+                            </audio>
+                            <audio id="wrongAudio">
+                                <source src="audio/Wrong.ogg" type="audio/ogg">
+                            </audio>
+                            <audio id="passAudio">
+                                <source src="audio/Pass.ogg" type="audio/ogg">
+                            </audio>
+                            <audio id="failAudio">
+                                <source src="audio/Fail.ogg" type="audio/ogg">
+                            </audio>
+                            <!--quiz is separated into pages-->
+                            <!--.scoreDisplay shows current score-->
+                            <!--.questionText displays the question-->
+                            <!--.changeQuizPage goes to the next part of the quiz-->
+                            <div id="game2Menu">
+                                <!--user starts quiz here-->
+                                <h2>Japanese Phrases Quiz</h2>
+                                <button class="changeQuizPage">START</button>
+                            </div>
+                            <div id="game2Question">
+                                <!--user answers question here-->
+                                <p class="scoreDisplay"></p>
+                                <p class="questionText"></p>
+                                <form>
+                                    <input type="radio" id="optionA" name="jp_phrase" value="optionA">
+                                    <label for="optionA">A</label><br>
+                                    <input type="radio" id="optionB" name="jp_phrase" value="optionB">
+                                    <label for="optionB">B</label><br>
+                                    <input type="radio" id="optionC" name="jp_phrase" value="optionC">
+                                    <label for="optionC">C</label><br>
+                                    <input type="radio" id="optionD" name="jp_phrase" value="optionD">
+                                    <label for="optionD">D</label><br>
+                                </form>
+                                <button class="changeQuizPage">SUBMIT</button>
+                            </div>
+                            <div id="game2Result">
+                                <!--user sees if they got question right or wrong-->
+                                <p class="scoreDisplay"></p>
+                                <p class="questionText"></p>
+                                <p id="questionAnswer"></p>
+                                <p id="questionResult"></p>
+                                <button class="changeQuizPage">NEXT</button>
+                            </div>
+                            <div id="game2Score">
+                                <!--quiz ends here here-->
+                                <p class="scoreDisplay"></p>
+                                <button class="changeQuizPage">END</button>
+                            </div>
+                            <p id="loadingMessage">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <aside>
+        <!--navigation interface to switch pages-->
+        <button id="navButton">Hide</button>
+        <div id="asideContent">
+            <h3>Navigation</h3>
+            <ul>
+                <li><button id="overviewBtn">Overview</button></li>
+                <li><button id="maidBtn">M.A.I.D.</button></li>
+                <li><button id="bjclBtn">B.J.C.L.</button></li>
+            </ul>
+        </div>
+    </aside>
+    <!--for other info-->
+    <footer>
+        <p>Contact us at XXXX XXXX for any relevant queries.</p>
+        <p>Visit [link] to register.</p>
+    </footer>
+</body>
+</html>

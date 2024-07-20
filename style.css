@@ -1,0 +1,387 @@
+/*02_RayyanPutraZalman_232470K*/
+
+@font-face {
+    font-family: MyriadProCondensed;
+    src: url(fonts/myriadprocond.woff); /*download at https://font.download/font/myriad-pro */
+}
+
+@font-face {
+    font-family: MyriadProCondensed;
+    src: url(fonts/myriadproboldcond.woff); /*download at https://font.download/font/myriad-pro */
+    font-weight:bold;
+}
+
+/*BASE ELEMENTS*/
+* {
+    font-family: MyriadProCondensed,'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    background-color: lavender;
+    text-align: center;
+    line-height: 40px;
+}
+h1 {
+    font-size:7vmin
+}
+h2 {
+    font-size:7vmin
+}
+h3 {
+    font-size:30px
+}
+p {
+    font-size:25px
+}
+button {
+    font-size:20px
+}
+label {
+    font-size:20px;
+}
+ul {
+    list-style-type:none;
+    padding-left:10px
+}
+td {
+    font-size: 20px;
+    border: 2px solid;
+}
+
+/*BODY*/
+body {
+    background-color: mediumpurple;
+    background-image: url('images/background.jpg');
+    background-size: 100%;
+    background-attachment:fixed;
+}
+
+/*HEADER*/
+header {
+    height: 600px;
+    overflow:hidden;
+    background-color:rgb(1,1,1,0.5);
+}
+#title {
+    height: 25%;
+    width:100%;
+    display:grid;
+    grid-template-rows: 150px;
+    grid-template-columns: 25% 50% 25%;
+    padding-bottom:25px;
+}
+header > #stretchedContainer {
+    background-color:transparent;
+    height: calc(75% - 25px);
+}
+header #stretched {
+    width: 100%;
+}
+#title > * {
+    background-color:transparent;
+}
+#title > div {
+    display:flex;
+    justify-content:center;
+    align-content:center;
+}
+#title > div > img {
+    height: 100%;
+}
+#title > div:nth-of-type(1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#title > h1 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#title > div:nth-of-type(2) {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+/*ASIDE*/
+aside {
+    top:200px;
+    width: 150px;
+    position:fixed;
+    padding-right:50px;
+    background-color:transparent;
+}
+#asideContent {
+    top:25%;
+    width: 100%;
+    height: 75%;
+}
+#asideContent {
+    display:block;
+    border: 5px solid rebeccapurple;
+}
+#asideContent > h2 {
+    width: 100%;
+}
+#asideContent button {
+    text-align: left;
+    width: 100%;
+}
+#navButton {
+    position:relative;
+    right: 45%;
+    display: none;
+}
+
+/*FOOTER*/
+footer {
+    padding: 25px;
+    background-color:mediumpurple
+}
+footer * {
+    background-color:mediumpurple;
+    color:lavender;
+}
+
+/*PAGES*/
+section {
+    background-color: transparent;
+    padding-bottom: 100px;
+}
+
+#pages {
+    background-color: transparent;
+}
+
+/*PAGE CONTENT*/
+/*Keep page content to the centre*/
+.content {
+    width:70%;
+    margin-bottom:200px;
+    padding: 75px 15% 75px 15%;
+}
+.content img {
+    width: 100%;
+    object-fit:contain;
+}
+.content > div {
+    position:relative;
+    background-color:transparent;
+}
+.content > div > p {
+    text-align:left;
+}
+
+/*CONTENT ANIMATION FADE IN*/
+@keyframes contentFrames {
+    0% {
+        bottom: 100px;
+        opacity: 0
+    }
+
+    100% {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+.content > .contentTransition {
+    animation: contentFrames 2s
+}
+
+#gallery > img {
+    width: 200px
+}
+
+#overviewPage > .content > div > img {
+    height: 350px
+}
+
+/*Wrap Japanese phrase tables for lower screen sizes*/
+#japanesePhrases {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+#japanesePhrases > table {
+    width:30%;
+    margin-left:20px
+}
+
+/*Centre the games on the page*/
+.gamecontainer {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+
+/*For Dress-up game*/
+#game1 {
+    width: 700px;
+    height: 500px;
+    border: 10px solid rebeccapurple;
+    background-image: linear-gradient(to top, mediumpurple, lavender);
+    display: flex;
+    justify-content: flex-start;
+}
+#game1 * {
+    background-color:transparent;
+    border-style:hidden;
+}
+/*Note: Avoid resizing the dimensions of the Character image so clothes can still fit*/
+#character {
+    width: calc(50% - 100px);
+    height: 100%;
+}
+#character > img {
+    height:100%;
+}
+/*Clothes on the right, Character on the left*/
+#clothing {
+    width: calc(50% + 100px);
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 20% 40% 40%;
+}
+#clothing > p {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#clothing > button > img, #wornshirt img, #wornpants img, #wornshirt button, #wornpants button  {
+    height:100%;
+}
+
+/*Position selected clothing such that it fits on the character*/
+#wornshirt {
+    position:relative;
+    width: 100%;
+    height: 40%;
+    bottom:134.5%;
+}
+#wornpants {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    bottom: 60%;
+}
+
+/*For quiz*/
+#game2 {
+    width: 700px;
+    height: 500px;
+    border: 10px solid rebeccapurple;
+    background-image: linear-gradient(to top, mediumpurple, lavender);
+}
+#game2 * {
+    background-color:transparent;
+    border-style:hidden;
+}
+#game2 > div {
+    height: 100%;
+    width: 100%;
+    display:none;
+}
+#game2 #loadingMessage {
+    position:relative;
+    font-weight:bold;
+    right: 35%;
+    top: 50%;
+    display:none;
+}
+/*These elements should have the same style across each quiz page*/
+#game2 .changeQuizPage {
+   height: 50px;
+   width: 100px;
+   border: 1px solid black;
+   border-radius: 10px;
+   background-color: mediumpurple;
+   color: lavender;
+}
+#game2 .scoreDisplay {
+    height: 75px;
+    width: 20%;
+    padding-left:5px;
+    padding-right:5px;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-weight:bold;
+    position:relative;
+    left:40%;
+}
+
+
+@media screen and (max-width:800px) {
+    /*Reposition navigator to the bottom of the page, show the Hide/Show button*/
+    aside {
+        width: 95%;
+        height: 20%;
+        top: 75%;
+    }
+    #navButton {
+        display: initial;
+    }
+    #asideContent > h3 {
+        margin-top:0px;
+        margin-bottom:0px;
+        padding-left:10px;
+        text-align:left;
+        height:50%;
+        width: calc(100% - 10px);
+    }
+    #asideContent > ul {
+        padding-left: 0px;
+        margin-top: 0px;
+        display: grid;
+        grid-template-rows: 50px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /*Reorder the header elements so the images at the side don't get squished too much*/
+    #title {
+        grid-template-rows: 75px 75px;
+        grid-template-columns: 50% 50%;
+        grid-row-gap: 15px;
+    }
+    #title > div:nth-of-type(1) {
+        grid-column-start:1;
+        grid-column-end:2;
+        grid-row-start:2;
+        grid-row-end: 3;
+    }
+    #title > h1 {
+        margin-top: 0px;
+        grid-column:span 2 / auto;
+        grid-row-start:1;
+        grid-row-end: 2;
+    }
+    #title > div:nth-of-type(2) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    /*Reorder dress-up game elements so character appears above and clothes appear below*/
+    #game1 {
+        width:400px;
+        height: 1000px;
+        display:grid;
+        grid-template-rows: 500px 500px;
+        grid-template-columns: 400px;
+    }
+    #game1 > * {
+        width:100%;
+    }
+
+
+    #game2 {
+        width: 100%;
+    }
+
+}
