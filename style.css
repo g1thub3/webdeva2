@@ -145,6 +145,9 @@ footer * {
     background-color:mediumpurple;
     color:lavender;
 }
+footer > img {
+    width: 300px;
+}
 
 /*PAGES*/
 section {
@@ -192,7 +195,7 @@ section {
 }
 
 #gallery > img {
-    width: 200px
+    width: 300px
 }
 
 #overviewPage > .content > div > img {

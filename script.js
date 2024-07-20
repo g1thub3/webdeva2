@@ -4,7 +4,7 @@
 const overviewPageBtn = document.querySelector("#overviewBtn");
 const maidPageBtn = document.querySelector("#maidBtn");
 const bjclPageBtn = document.querySelector("#bjclBtn");
-var allpages = document.querySelector("#pages").children;
+const allpages = document.querySelector("#pages").children;
 
 hideall();
 function hideall() {
@@ -14,7 +14,7 @@ function hideall() {
 }
 function show(pgno) {
     hideall();
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     let onepage = allpages[pgno];
     onepage.style.display = "block";
 }
@@ -46,7 +46,7 @@ navButton.addEventListener("click", function () {
         navWindow.style.display = "block";
         hidden = false;
     }
-})
+});
 
 //UNHIDE NAVIGATOR WHEN RESIZED LARGER
 window.addEventListener('resize', function () {
@@ -60,20 +60,20 @@ window.addEventListener('resize', function () {
 });
 
 //DRESS UP GAME
-var shirtDescriptions = [
+const shirtDescriptions = [
     "The school T-shirt! Everyone receives this during orientation.",
     "Some casual wear! As long as it's appropriate for school!",
     "A Japanese happi! SJCC owns a few!"
-]
+];
 
-var wornshirt = document.querySelector("#wornshirt");
-var wornpants = document.querySelector("#wornpants");
+const wornshirt = document.querySelector("#wornshirt");
+const wornpants = document.querySelector("#wornpants");
 
-var clothing = document.querySelector("#clothing").children;
-var shirtText = clothing[0];
+const clothing = document.querySelector("#clothing").children;
+const shirtText = clothing[0];
 
-var clickAudio = document.querySelector("#clickAudio");
-var takeoffAudio = document.querySelector("#takeoffAudio");
+const clickAudio = document.querySelector("#clickAudio");
+const takeoffAudio = document.querySelector("#takeoffAudio");
 
 /*DELETE CLOTHING ALREADY ON CHARACTER*/
 function removeShirt() {
@@ -87,10 +87,10 @@ function removeShirt() {
 
 /*ADD NEW CLOTHING ONTO CHARACTER*/
 function wearShirt(shirtIndex) {
-    let shirtButton = clothing[shirtIndex];
+    const shirtButton = clothing[shirtIndex];
     // REMOVE CURRENT SHIRT
     removeShirt();
-    
+
     let newShirt = shirtButton.cloneNode(true);
     wornshirt.appendChild(newShirt);
 
@@ -108,32 +108,32 @@ function removePants() {
     }
 }
 function wearPants(pantsIndex) {
-    let pantsButton = clothing[pantsIndex];
+    const pantsButton = clothing[pantsIndex];
     removePants();
-    
+
     let newPants = pantsButton.cloneNode(true);
     wornpants.appendChild(newPants);
     newPants.addEventListener("click", removePants);
 
     clickAudio.play();
 }
+
+var funcBind = [];
 /*First three elements are shirts, last three elements are pants*/
 for (let i = 1; i <= 3; i++) {
-    let shirtButton = clothing[i];
-    shirtButton.addEventListener("click", function () {
-        wearShirt(i);
-    });
+    const shirtButton = clothing[i];
+    funcBind[i] = wearShirt.bind(this, i);
+    shirtButton.addEventListener("click", funcBind[i]);
 }
 for (let i = 4; i <= 6; i++) {
-    let pantsButton = clothing[i];
-    pantsButton.addEventListener("click", function () {
-        wearPants(i);
-    });
+    const pantsButton = clothing[i];
+    funcBind[i] = wearPants.bind(this, i);
+    pantsButton.addEventListener("click", funcBind[i]);
 }
 
 
 //QUIZ GAME
-var JAPANESE_PHRASES = [
+const JAPANESE_PHRASES = [
     ["Konnichiwa", "Hello"], ["Arigatoo Gozaimasu", "Thank you"], ["Sumimasen", "Sorry. / Excuse me."],
     ["Namae", "Name"], ["Konbanwa", "Good evening."], ["Mata raishuu", "See you next week."],
     ["Sayonara", "Goodbye"], ["Gakusee", "Student"], ["Sensee", "Teacher"],
@@ -144,29 +144,29 @@ var JAPANESE_PHRASES = [
     ["Ni", "Two"], ["San", "Three"], ["Yon", "Four"],
     ["Go", "Five"], ["Roku", "Six"], ["Nana", "Seven"],
     ["Hachi", "Eight"], ["Kyuu", "Nine"], ["Juu", "Ten"]
-]
+];
 
-var game2 = document.querySelector("#game2");
-var menuPage = game2.querySelector("#game2Menu");
-var questionPage = game2.querySelector("#game2Question");
-var resultPage = game2.querySelector("#game2Result");
-var scorePage = game2.querySelector("#game2Score");
+const game2 = document.querySelector("#game2");
+const menuPage = game2.querySelector("#game2Menu");
+const questionPage = game2.querySelector("#game2Question");
+const resultPage = game2.querySelector("#game2Result");
+const scorePage = game2.querySelector("#game2Score");
 
-var questionText = game2.querySelectorAll(".questionText");
-var questionAnswer = resultPage.querySelector("#questionAnswer");
-var questionResult = resultPage.querySelector("#questionResult");
-var scoreDisplay = game2.querySelectorAll(".scoreDisplay");
+const questionText = game2.querySelectorAll(".questionText");
+const questionAnswer = resultPage.querySelector("#questionAnswer");
+const questionResult = resultPage.querySelector("#questionResult");
+const scoreDisplay = game2.querySelectorAll(".scoreDisplay");
 
-var inputOptions = questionPage.querySelectorAll("input");
+const inputOptions = questionPage.querySelectorAll("input");
 var selectedOption = -1;
 var answerIndex = 1;
 var score = 0;
 var questionsAnswered = 0;
 
-var correctAudio = document.querySelector("#correctAudio");
-var wrongAudio = document.querySelector("#wrongAudio");
-var passAudio = document.querySelector("#passAudio");
-var failAudio = document.querySelector("#failAudio");
+const correctAudio = document.querySelector("#correctAudio");
+const wrongAudio = document.querySelector("#wrongAudio");
+const passAudio = document.querySelector("#passAudio");
+const failAudio = document.querySelector("#failAudio");
 
 menuPage.style.display = "initial";
 function HideQuizPages() {
@@ -223,7 +223,7 @@ function LoadQuestion(questionNumber, answerIndex) {
     //ADD QUESTION TEXT
     questionText.forEach(function (element) {
         element.innerHTML = "Q" + (questionNumber + 1) + ": What is the meaning of " + JAPANESE_PHRASES[answerIndex][0] + "?";
-    })
+    });
 
     //RANDOMISE OPTIONS
     let optionOrder = [answerIndex, option1, option2, option3];
@@ -232,10 +232,10 @@ function LoadQuestion(questionNumber, answerIndex) {
     //ADD OPTIONS
     inputOptions.forEach(function (element, index) {
         element.value = optionOrder[index];
-    })
+    });
     inputLabels.forEach(function (element, index) {
         element.innerHTML = JAPANESE_PHRASES[optionOrder[index]][1];
-    })
+    });
 
     //LOADING DONE, DISPLAY QUESTION
     loadingMessage.style.display = "none";
@@ -251,20 +251,20 @@ function StartQuiz() {
     questionsAnswered = 0;
     scoreDisplay.forEach(function (element) {
         element.innerHTML = "Score: " + score + " / 5";
-    })
+    });
     LoadQuestion(questionsAnswered, answerIndex);
 }
 
 /*SUBMIT ANSWER*/
-var submitButton = questionPage.querySelector(".changeQuizPage");
+const submitButton = questionPage.querySelector(".changeQuizPage");
 submitButton.addEventListener("click", function () {
     /*CHECK IF AN OPTION WAS SELECTED*/
-    inputOptions.forEach(function (element, index) {
+    inputOptions.forEach(function (element) {
         if (element.checked == true) {
             selectedOption = parseInt(element.value);
             element.checked = false;
         }
-    })
+    });
     if (selectedOption > -1) {
         /*CHECK IF ANSWER IS RIGHT OR WRONG*/
         clickAudio.play();
@@ -279,15 +279,15 @@ submitButton.addEventListener("click", function () {
             wrongAudio.play();
         }
         scoreDisplay.forEach(function (element) {
-            element.innerHTML ="Score: " + score + " / 5";
-        })
+            element.innerHTML = "Score: " + score + " / 5";
+        });
         /*SHOW RESULT*/
         HideQuizPages();
         resultPage.style.display = "initial";
     }
-})
+});
 /*RESULT PAGE*/
-var nextQuestionButton = resultPage.querySelector(".changeQuizPage");
+const nextQuestionButton = resultPage.querySelector(".changeQuizPage");
 nextQuestionButton.addEventListener("click", function () {
     clickAudio.play();
     /*IF THERE ARE STILL QUESTIONS LEFT, LOAD ANOTHER, OTHERWISE GO TO SCORE PAGE*/
@@ -304,17 +304,17 @@ nextQuestionButton.addEventListener("click", function () {
             failAudio.play();
         }
     }
-})
+});
 
 /*RETURN TO START PAGE*/
-var restartButton = scorePage.querySelector(".changeQuizPage");
+const restartButton = scorePage.querySelector(".changeQuizPage");
 restartButton.addEventListener("click", function () {
     HideQuizPages();
     menuPage.style.display = "initial";
     clickAudio.play();
-})
+});
 
-var startButton = menuPage.querySelector(".changeQuizPage");
+const startButton = menuPage.querySelector(".changeQuizPage");
 startButton.addEventListener("click", StartQuiz);
 
 //CONTENT ANIMATIONS
@@ -327,13 +327,13 @@ document.addEventListener("scroll", function () {
             break;
         }
     }
-    var pageContent = currentPage.querySelectorAll(".content");
+    const pageContent = currentPage.querySelectorAll(".content");
     pageContent.forEach(function (element) {
-        var screenPosition = element.getBoundingClientRect();
+        const screenPosition = element.getBoundingClientRect();
         //IF CONTENT IS SCROLLED INTO VIEW
         if (screenPosition.top < 600) {
-            var contentComponent = element.querySelector("div");
+            const contentComponent = element.querySelector("div");
             contentComponent.classList.add("contentTransition");
         }
-    })
-})
+    });
+});
