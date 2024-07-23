@@ -72,20 +72,20 @@ const wornpants = document.querySelector("#wornpants");
 const clothing = document.querySelector("#clothing").children;
 const shirtText = clothing[0];
 
-//[src, isInitialised, audioObject]
+//[id, isInitialised, audioObject]
 var audioContainer = [
-    ["audio/Click.ogg", false],
-    ["audio/TakeOff.ogg", false],
-    ["audio/Correct.ogg", false],
-    ["audio/Wrong.ogg", false],
-    ["audio/Pass.ogg", false],
-    ["audio/Fail.ogg", false],
+    ["#clickAudio", false],
+    ["#takeoffAudio", false],
+    ["#correctAudio", false],
+    ["#wrongAudio", false],
+    ["#passAudio", false],
+    ["#failAudio", false],
 ];
 
 function playAudio(id) {
     let audioData = audioContainer[id];
     if (audioData[1] == false) {
-        audioData[2] = new Audio(audioData[0]);
+        audioData[2] = document.querySelector(audioData[0]);
         audioData[1] = true;
     }
     let chosenAudio = audioData[2];
