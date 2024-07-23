@@ -72,15 +72,40 @@ const wornpants = document.querySelector("#wornpants");
 const clothing = document.querySelector("#clothing").children;
 const shirtText = clothing[0];
 
-const clickAudio = new Audio("audio/Click.ogg"); //document.querySelector("#clickAudio");
-const takeoffAudio = new Audio("audio/TakeOff.ogg"); //document.querySelector("#takeoffAudio");
+//[src, isInitialised, audioObject]
+var audioContainer = [
+    ["audio/Click.ogg", false],
+    ["audio/TakeOff.ogg", false],
+    ["audio/Correct.ogg", false],
+    ["audio/Wrong.ogg", false],
+    ["audio/Pass.ogg", false],
+    ["audio/Fail.ogg", false],
+];
+
+function playAudio(id) {
+    let audioData = audioContainer[id];
+    if (audioData[1] == false) {
+        audioData[2] = new Audio(audioData[0]);
+        audioData[1] = true;
+    }
+    let chosenAudio = audioData[2];
+    chosenAudio.play();
+}
+
+//const clickAudio = new Audio("audio/Click.ogg"); //document.querySelector("#clickAudio");
+//const takeoffAudio = new Audio("audio/TakeOff.ogg"); //document.querySelector("#takeoffAudio");
+//const correctAudio = new Audio("audio/Correct.ogg");//document.querySelector("#correctAudio");
+//const wrongAudio = new Audio("audio/Wrong.ogg");//document.querySelector("#wrongAudio");
+//const passAudio = new Audio("audio/Pass.ogg");//document.querySelector("#passAudio");
+//const failAudio = new Audio("audio/Fail.ogg");//document.querySelector("#failAudio");
 
 /*DELETE CLOTHING ALREADY ON CHARACTER*/
 function removeShirt() {
     let currentshirt = wornshirt.querySelector("button");
     if (currentshirt != null) {
         currentshirt.remove();
-        takeoffAudio.play();
+        //takeoffAudio.play();
+        playAudio(1);
     }
     shirtText.innerHTML = "Choose a shirt!";
 }
@@ -97,14 +122,16 @@ function wearShirt(shirtIndex) {
     newShirt.addEventListener("click", removeShirt);
 
     shirtText.innerHTML = shirtDescriptions[shirtIndex - 1];
-    clickAudio.play();
+    playAudio(0);
+    //clickAudio.play();
 }
 
 function removePants() {
     let currentpants = wornpants.querySelector("button");
     if (currentpants != null) {
         currentpants.remove();
-        takeoffAudio.play();
+        //takeoffAudio.play();
+        playAudio(1);
     }
 }
 function wearPants(pantsIndex) {
@@ -115,7 +142,8 @@ function wearPants(pantsIndex) {
     wornpants.appendChild(newPants);
     newPants.addEventListener("click", removePants);
 
-    clickAudio.play();
+    //clickAudio.play();
+    playAudio(0);
 }
 
 var funcBind = [];
@@ -162,11 +190,6 @@ var selectedOption = -1;
 var answerIndex = 1;
 var score = 0;
 var questionsAnswered = 0;
-
-const correctAudio = new Audio("audio/Correct.ogg");//document.querySelector("#correctAudio");
-const wrongAudio = new Audio("audio/Wrong.ogg");//document.querySelector("#wrongAudio");
-const passAudio = new Audio("audio/Pass.ogg");//document.querySelector("#passAudio");
-const failAudio = new Audio("audio/Fail.ogg");//document.querySelector("#failAudio");
 
 menuPage.style.display = "initial";
 function HideQuizPages() {
@@ -244,7 +267,8 @@ function LoadQuestion(questionNumber, answerIndex) {
 
 function StartQuiz() {
     /*RESET QUIZ STATS*/
-    clickAudio.play();
+    //clickAudio.play();
+    playAudio(0);
     selectedOption = -1;
     answerIndex = GetRandomPhraseIndex();
     score = 0;
@@ -267,16 +291,19 @@ submitButton.addEventListener("click", function () {
     });
     if (selectedOption > -1) {
         /*CHECK IF ANSWER IS RIGHT OR WRONG*/
-        clickAudio.play();
+        //clickAudio.play();
+        playAudio(0);
         questionsAnswered++;
         questionAnswer.innerHTML = "The answer is " + JAPANESE_PHRASES[answerIndex][1] + ". Your answer was " + JAPANESE_PHRASES[selectedOption][1] + ".";
         if (selectedOption == answerIndex) {
             questionResult.innerHTML = "CORRECT!";
             score++;
-            correctAudio.play();
+            //correctAudio.play();
+            playAudio(2);
         } else {
             questionResult.innerHTML = "WRONG!";
-            wrongAudio.play();
+            //wrongAudio.play();
+            playAudio(3);
         }
         scoreDisplay.forEach(function (element) {
             element.innerHTML = "Score: " + score + " / 5";
@@ -289,7 +316,8 @@ submitButton.addEventListener("click", function () {
 /*RESULT PAGE*/
 const nextQuestionButton = resultPage.querySelector(".changeQuizPage");
 nextQuestionButton.addEventListener("click", function () {
-    clickAudio.play();
+    //clickAudio.play();
+    playAudio(0);
     /*IF THERE ARE STILL QUESTIONS LEFT, LOAD ANOTHER, OTHERWISE GO TO SCORE PAGE*/
     if (questionsAnswered < 5) {
         selectedOption = -1;
@@ -299,9 +327,11 @@ nextQuestionButton.addEventListener("click", function () {
         HideQuizPages();
         scorePage.style.display = "initial";
         if (score > 2) {
-            passAudio.play();
+            //passAudio.play();
+            playAudio(4);
         } else {
-            failAudio.play();
+            //failAudio.play();
+            playAudio(5);
         }
     }
 });
@@ -311,7 +341,8 @@ const restartButton = scorePage.querySelector(".changeQuizPage");
 restartButton.addEventListener("click", function () {
     HideQuizPages();
     menuPage.style.display = "initial";
-    clickAudio.play();
+    //clickAudio.play();
+    playAudio(0);
 });
 
 const startButton = menuPage.querySelector(".changeQuizPage");
